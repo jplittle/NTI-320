@@ -19,8 +19,11 @@ chmod 666 /var/log/nagios/nagios.log
 # verify
 /usr/sbin/nagios -v /etc/nagios/nagios.cfg
 
+# Baby Web server - For Google cloud make sure it is in the same zone as the Nagios server
 
-
+# yum -y install httpd
+# systemctl enable httpd
+# systemctl start httpd
 
 
 

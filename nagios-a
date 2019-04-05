@@ -17,7 +17,10 @@ htpasswd -c /etc/nagios/passwd nagiosadmin
 # password set to 12qwaszx+1
 chmod 666 /var/log/nagios/nagios.log
 systemctl restart nagios
-
+echo "define command{
+                                command_name check_nrpe
+                                command_line /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+                                }" >> /etc/nagios/objects/commands.cfg
 # verify ( prefly )
 /usr/sbin/nagios -v /etc/nagios/nagios.cfg
 

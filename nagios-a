@@ -1,3 +1,4 @@
+!#/bin/bash
 # Centos 7 Machine
 # sudo su
 yum -y install nagios

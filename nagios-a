@@ -1,5 +1,26 @@
-# Centos 7 Machine 
+# Centos 7 Machine
 sudo su
-yum install nagios
+yum -y install nagios
 systemctl enable nagios
+setenforce 0
 systemctl start nagios
+yum -y install httpd
+systemctl enable httpd
+systemctlstart httpd
+yum -y install nrpe
+systemctl enable nrpe
+systemctl start nrpe
+yum -y install nagios-plugins-all
+yum -y install nagios-plugins-nrpe
+htpasswd -c /etc/nagios/passwd nagiosadmin 
+# password set to 12qwaszx+1
+chmod 666 /var/log/nagios/nagios.log
+
+# verify
+/usr/sbin/nagios -v /etc/nagios/nagios.cfg
+
+
+
+
+
+

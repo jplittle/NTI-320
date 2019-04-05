@@ -16,7 +16,7 @@ htpasswd -c /etc/nagios/passwd nagiosadmin
 # password set to 12qwaszx+1
 chmod 666 /var/log/nagios/nagios.log
 
-# verify
+# verify ( prefly )
 /usr/sbin/nagios -v /etc/nagios/nagios.cfg
 
 # Baby Web server - For Google cloud make sure it is in the same zone as the Nagios server

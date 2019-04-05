@@ -1,5 +1,5 @@
 # Centos 7 Machine
-sudo su
+# sudo su
 yum -y install nagios
 systemctl enable nagios
 setenforce 0

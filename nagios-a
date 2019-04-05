@@ -1,0 +1,5 @@
+# Centos 7 Machine 
+sudo su
+yum install nagios
+systemctl enable nagios
+systemctl start nagios

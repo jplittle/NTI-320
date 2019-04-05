@@ -16,6 +16,7 @@ yum -y install nagios-plugins-nrpe
 htpasswd -c /etc/nagios/passwd nagiosadmin 
 # password set to 12qwaszx+1
 chmod 666 /var/log/nagios/nagios.log
+systemctl restart nagios
 
 # verify ( prefly )
 /usr/sbin/nagios -v /etc/nagios/nagios.cfg

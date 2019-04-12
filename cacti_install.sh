@@ -21,6 +21,7 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -pP@ssw0rd1 mysql    # T
 echo "create database cacti;
 GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY 'P@ssw0rd1';  # Set this to somthing better than 'cactipass'
 FLUSH privileges;
+
 GRANT SELECT ON mysql.time_zone_name TO cacti@localhost;            # Added to fix a timezone issue
 flush privileges;" > stuff.sql
 
@@ -28,8 +29,9 @@ mysql -u root  -p < stuff.sql    # Run your sql script
 
 rpm -ql cacti|grep cacti.sql     # Will list the location of the package cacti sql script
                                  # In this case, the output is /usr/share/doc/cacti-1.0.4/cacti.sql, run that to populate your db
-                                 
-mysql cacti < /usr/share/doc/cacti-1.1.37/cacti.sql -u cacti -pP@ssw0rd1
+mypath=$(rpm -ql cacti|grep cacti.sql)
+mysql cacti < $mypath -u cacti -pP@ssw0rd1
+
 
 mysql -u cacti -p cacti < /usr/share/doc/cacti-1.0.4/cacti.sql
 

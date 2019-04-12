@@ -54,3 +54,4 @@ systemctl restart httpd.service
 # Set up the cacti cron
 sed -i 's/#//g' /etc/cron.d/cacti
 setenforce 0
+###### MUST LOG IN AS ADMIN ADMIN THE VERY FIRST TIME!!!!!!!!

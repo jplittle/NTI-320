@@ -13,7 +13,7 @@ systemctl enable nrpe
 systemctl start nrpe
 yum -y install nagios-plugins-all
 yum -y install nagios-plugins-nrpe
-htpasswd -c /etc/nagios/passwd nagiosadmin 
+htpasswd -b -c /etc/nagios/passwd nagiosadmin nagiosadmin
 # password set to 12qwaszx+1
 chmod 666 /var/log/nagios/nagios.log
 systemctl restart nagios

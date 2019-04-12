@@ -55,3 +55,4 @@ systemctl restart httpd.service
 sed -i 's/#//g' /etc/cron.d/cacti
 setenforce 0
 ###### MUST LOG IN AS ADMIN ADMIN THE VERY FIRST TIME!!!!!!!!
+#### You will need to add a time "wait" after the databases or before

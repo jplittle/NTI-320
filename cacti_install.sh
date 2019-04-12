@@ -1,6 +1,6 @@
 yum -y install cacti               # Installes a number of packages, including mariadb, httpd, php and so on
 
-yum install mariadb-server         # The mysql/mariadb client installs with the cacti stack but not the server
+yum -y install mariadb-server         # The mysql/mariadb client installs with the cacti stack but not the server
 
                                    # If you want to have multiple cacti nodes, considder using the client and connecting
 

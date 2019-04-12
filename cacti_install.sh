@@ -8,7 +8,7 @@ yum -y install mariadb-server         # The mysql/mariadb client installs with t
 
                                    
 
-yum install php-process php-gd php mod_php
+yum -y install php-process php-gd php mod_php
 
                                    
 

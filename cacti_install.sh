@@ -33,7 +33,9 @@ mypath=$(rpm -ql cacti|grep cacti.sql)
 mysql cacti < $mypath -u cacti -pP@ssw0rd1
 
 
-mysql -u cacti -p cacti < /usr/share/doc/cacti-1.0.4/cacti.sql
+
+
+# mysql -u cacti -p cacti < /usr/share/doc/cacti-1.0.4/cacti.sql
 
 # Open up apache
 sed -i 's/Require host localhost/Require all granted/' /etc/httpd/conf.d/cacti.conf

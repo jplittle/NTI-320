@@ -1,0 +1,1 @@
+/usr/lib64/nagios/plugins/check_nrpe -H 10.150.0.3 -c check_mem

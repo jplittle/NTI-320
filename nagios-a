@@ -1,7 +1,7 @@
 !#/bin/bash
 # Centos 7 Machine
 # sudo su
-yum install -y nagios-nrpe-server nagios-plugins nrpe nagios-plugins-load nagios-plugins-ping nagios-plugins-disk nagios-plugins-http nagios-plugins-procs wget
+yum -y install nagios
 systemctl enable nagios
 setenforce 0
 systemctl start nagios

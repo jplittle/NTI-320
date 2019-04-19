@@ -8,3 +8,4 @@ systemctl enable nrpe
 systemctl start nrpe
 sed -i 's/allowed_hosts=127.0.0.1/allowed_hosts=127.0.0.1, 10.150.0.2/g' /etc/nagios/nrpe.cfg
 systemctl restart nrpe
+ # sed #command[check_mem]=/usr/lib64/nagios/plugins/custom_check_mem -n $ARG1$,command[check_mem]=/usr/lib64/nagios/plugins/check_mem.sh -w 80 -c 90,g' /etc/nagios/nrpe.cfg

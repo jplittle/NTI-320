@@ -1,0 +1,8 @@
+NOC = network operations center
+SOC = network operation center
+Nocs can correlate problems tha thave a mysterious root cause
+ex : say root server goes down and you have a cluster of 30...what could it be? Malware, update etc, DDOS attack, user error
+when we create a network of things, we want to create a dependecy diagram, 
+
+#### Making each server our host their own config
+# Uncomment servers in nagios.cfg line 51, then mkdir servers, then can add each individual cfg in objects ( mknag ? or one directory up )

@@ -12,4 +12,4 @@ for servername in $( gcloud compute instances list | awk '{print $1}' | sed "1 d
 
 done
 
-gcloud compute ssh --zone us-east4-c nicolebade@nagios-a --command='sudo systemctl restart nagios'
+gcloud compute ssh --zone us-east4-c jamesplittle25@nagios-a --command='sudo systemctl restart nagios'

@@ -12,6 +12,7 @@
 ###########
 # SysLog
 ###########
+gcloud config set project NTI-320
 gcloud compute instances create rsyslog-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \

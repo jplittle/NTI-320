@@ -16,7 +16,7 @@ sed -i 's|#command\[check_load\]=/usr/lib64/nagios/plugins/check_load \$ARG1\$|c
 sed -i 's|#command\[check_disk\]=/usr/lib64/nagios/plugins/check_disk \$ARG1\$|command\[check_disk\]=/usr/lib64/nagios/plugins/check_disk -w 20% -c 10%|g' /etc/nagios/nrpe.cfg
 sed -i 's|#command\[check_swap\]=/usr/lib64/nagios/plugins/check_swap \$ARG1\$|command\[check_swap\]=/usr/lib64/nagios/plugins/check_swap -w 20% -c 10%|g' /etc/nagios/nrpe.cfg
 sed -i 's|#command\[check_cpu_stats\]=/usr/lib64/nagios/plugins/check_cpu_stats.sh \$ARG1\$|command\[check_cpu_stats\]=/usr/lib64/nagios/plugins/check_cpu_stats.sh -w 70,40,30 -c 90,50,40|g' /etc/nagios/nrpe.cfg
-sed -i 's/allowed_hosts=127.0.0.1/allowed_hosts=127.0.0.1, 10.168.0.2/g' /etc/nagios/nrpe.cfg
+sed -i 's/allowed_hosts=127.0.0.1/allowed_hosts=127.0.0.1, 10.150.0.2/g' /etc/nagios/nrpe.cfg
 
 
 

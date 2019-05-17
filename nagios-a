@@ -28,6 +28,7 @@ cd /etc/nagios
 sed -i "s/#cfg_dir=/etc/nagios/servers/cfg_dir=/etc/nagios/servers" nagios.cfg
 sudo mkdir servers
 sudo chmod -R 755 servers
+systecmctl restart nagios
 
 # Baby Web server - For Google cloud make sure it is in the same zone as the Nagios server
 # yum -y install httpd

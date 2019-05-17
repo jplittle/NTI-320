@@ -24,8 +24,9 @@ echo 'define command{
 # verify ( prefly )
 /usr/sbin/nagios -v /etc/nagios/nagios.cfg
 
-# Baby Web server - For Google cloud make sure it is in the same zone as the Nagios server
+sed -i "s/#cfg_dir=/etc/nagios/servers/cfg_dir=/etc/nagios/servers"
 
+# Baby Web server - For Google cloud make sure it is in the same zone as the Nagios server
 # yum -y install httpd
 # systemctl enable httpd
 # systemctl start httpd

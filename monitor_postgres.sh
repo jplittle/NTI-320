@@ -3,7 +3,7 @@
 # plugins we write
 cd /usr/lib/systemd/system
 status=$(systemctl is-active postgresql.service)    # Determines if postgresql.service is inactive or active
-status1=$(systemctl is-disabled postgresql.service)  # Determines if postgresql.service is disabled or enabled
+status1=$(systemctl is-enabled postgresql.service)  # Determines if postgresql.service is disabled or enabled
 
 if [ $status == "active" ]; then
     echo "STATUS:OK POSTGRES IS RUNNING"

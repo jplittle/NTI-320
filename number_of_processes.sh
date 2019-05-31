@@ -2,17 +2,17 @@
 # This is a script meant to let us test NRPE
 # plugins we write
 
-status="0"                                  # Change the status to test different alert states
+status=$(ps aux | grep -c "")                                  # Change the status to test different alert states
 
-if [ $status == "0" ]; then
+if [ $status -le 100" ]; then
     echo "STATUS:OK"
     exit 0;
     
-  elif [ $status == "2" ]; then
+  elif [ $status ge "150" ]; then
     echo "STATUS:CRITICAL"
     exit 2;
     
-  elif [ $status == "1" ] ; then
+  elif [ $status gt "110" ] ; then
     echo "STATUS:WARNING"
     exit 1;
     

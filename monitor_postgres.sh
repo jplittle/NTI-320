@@ -5,7 +5,10 @@ cd /usr/lib/systemd/system
 status=$(systemctl is-active postgresql.service)    # Determines if postgresql.service is inactive or active
 status1=$(systemctl is-enabled postgresql.service)  # Determines if postgresql.service is disabled or enabled
 
-if  [ $status1 == "disabled" ] ; then
+if  [ $status1 == "disabled" ] ; then                              # The if and elif order of checks matters. For example, if variable 
+                                                                   # $status is checked first in the if loop instead of $status1, the script
+                                                                   # will issue that postgress is running...but if someone were to disable postgres
+                                                                   # this would issue a false postive ( postgres running, but recently disabled ).
     echo "STATUS:WARNING POSTGRES IS DISABLED"
     exit 1;
     

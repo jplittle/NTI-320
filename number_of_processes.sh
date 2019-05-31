@@ -12,7 +12,7 @@ if [ $status -le 100" ]; then
     echo "STATUS:CRITICAL"
     exit 2;
     
-  elif [ $status gt "110" ] ; then
+  elif [ $status gt "101" ] ; then
     echo "STATUS:WARNING"
     exit 1;
     

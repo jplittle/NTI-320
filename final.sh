@@ -12,6 +12,28 @@
 ################
 
 ###########
+# Nagios
+###########
+gcloud compute instances create rsyslog-server-final \
+--private-network-ip=10.150.0.3 \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-east4-c \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=nagios-a
+###########
+# Repo
+###########
+gcloud compute instances create rsyslog-server-final \
+--private-network-ip=10.150.0.4 \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-east4-c \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=create-repo-server.sh
+###########
 # SysLog
 ###########
 gcloud compute instances create rsyslog-server-final \

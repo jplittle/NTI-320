@@ -27,4 +27,4 @@ rpm -ivh ./nagios-4.2.4-2.el7.src.rpm
 
 
 
-# This will install into your existing build dir in the root home under rpmbuild.
+# This will install into your existing build dir in the root home under rpmbuild.ddd

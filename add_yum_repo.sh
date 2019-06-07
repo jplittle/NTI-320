@@ -1,6 +1,6 @@
 #!/bin/bash
 # this is a script to add a yum repo on a given server/client.
-#add to existing repos (ls /etc/yum.repos.d)
+#add to existing repos (ls /etc/yum.repos.d)dd
 
 ##repo server ip
 ip="10.150.0.2"                                                    # Please replace with your repo server IP

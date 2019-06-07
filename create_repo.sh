@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yum -y install createrepo                                                          # Install createrepo
+yum -y install createrepo                                                          # Install createrepodd
 
 mkdir -p /repos/centos/7/extras/x86_64/Packages/                                   # Make your repo dir
 

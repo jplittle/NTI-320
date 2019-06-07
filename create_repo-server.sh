@@ -17,7 +17,7 @@ mkdir -p /repos/centos/7/extras/x86_64/Packages/                                
 ##gcloud compute scp helloworld-0.1-1.el7.x86_64.rpm g42dfyt@repo-serv:/home/g42
 ##dfyt
 ##Did you mean zone [us-west1-a] for instance: [repo-serv] (Y/n)?  n
-cp helloworld-0.1-1.el7.x86_64.rpm /repos/centos/7/extras/x86_64/Packages   # Replace 'helloworld*' with your package
+cp helloworld-0.1-1.el7.x86_64.rpm /repos/centos/7/extras/x86_64/Packages   # Nicole will provide this package to us on the day of the final
 
 createrepo --update /repos/centos/7/extras/x86_64/Packages/                        # Update after every change
 
@@ -38,9 +38,9 @@ ln -s  /repos/centos /var/www/html/centos                                       
 ##always copy config files to .bak before editting
 cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.bak                      # Make a copy of our origonal httpd.conf
 
-sed -i '144i     Options All' /etc/httpd/conf/httpd.conf                          # Configure apache
-sed -i '145i    # Disable directory index so that it will index our repos' /etc/httpd/conf/httpd.conf
-sed -i '146i     DirectoryIndex disabled' /etc/httpd/conf/httpd.conf
+sed -i '144i     Options All' /etc/httpd/conf/httpd.conf;                          # Configure apache
+sed -i '145i    # Disable directory index so that it will index our repos' /etc/httpd/conf/httpd.conf;
+sed -i '146i     DirectoryIndex disabled' /etc/httpd/conf/httpd.conf;
 
 sed -i 's/^/#/' /etc/httpd/conf.d/welcome.conf                                    # Disables the defualt welcome page in the recommended way
 

@@ -23,6 +23,19 @@ gcloud compute instances create nagios-server-final \
 --metadata-from-file startup-script=nagios-a.sh
 
 ###########
+# Cacti
+###########
+gcloud compute instances create cacti-server-final \
+--private-network-ip=10.150.0.3 \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-east4-c \
+--tags "http-server","https-server" \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=cacti_install.sh
+
+###########
 # Build Server
 ###########
 

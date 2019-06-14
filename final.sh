@@ -94,7 +94,7 @@ gcloud compute instances create nfs-server-final \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=nfs-server-automate.sh
+--metadata-from-file startup-script=nfs-server-final.sh
 
 #############
 # Django Server

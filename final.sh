@@ -25,7 +25,7 @@ gcloud compute instances create rsyslog-server-final \
 ###########
 # Repo
 ###########
-gcloud compute instances create rsyslog-server-final \
+gcloud compute instances create repo-server-final \
 --private-network-ip=10.150.0.4 \
 --image-family centos-7 \
 --image-project centos-cloud \

@@ -30,6 +30,8 @@ echo 'define command{
 /usr/sbin/nagios -v /etc/nagios/nagios.cfg
 chmod 777 /etc/nagios/servers
 systecmctl restart nagios
+touch /var/www/html/index.html
+chmod 755 /var/www/html/index.html
 #cd /etc/nagios
 #sed -i "s/#cfg_dir=/etc/nagios/servers/cfg_dir=/etc/nagios/servers" nagios.cfg
 #sudo mkdir servers

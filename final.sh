@@ -81,7 +81,7 @@ gcloud compute instances create ldap-server-final \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=LDAP-automate.sh
+--metadata-from-file startup-script=ldap-server-final.sh
 
 #############
 # NFS Server

@@ -1,68 +1,55 @@
 #!/bin/bash
 
-# configuration for nagios-a
-#####################
-#   On the server   #
-#####################
-
-##### INSTALL NAGIOS #####
 yum -y install nagios
 systemctl enable nagios
 systemctl start nagios
 
-##### TURN OFF SE LINUX #####
 setenforce 0
 
-##### INSTALL APACHE #####
 yum -y install httpd
 systemctl enable httpd
 systemctl start httpd
 
-##### INSTALL NRPE #####
 yum -y install nrpe
 systemctl enable nrpe
 systemctl start nrpe
 
-##### INSTALL NAGIOS SERVER PLUGINS #####
 yum -y install nagios-plugins-all
 
-##### INSTALL NRPE SERVER PLUGINS #####
 yum -y install nagios-plugins-nrpe
 
-##### CREATE PASSWORD #####
-htpasswd -b -c /etc/nagios/passwd nagiosadmin nagiosadmin
+dd if=/dev/zero of=/swap bs=1024 count=2097152
 
-##### ENABLE ACCESS FOR LOGS #####
+mkswap /swap && chown root. /swap && chmod 0600 /swap && swapon /swap
+
+echo /swap swap swap defaults 0 0 >> /etc/fstab
+
+echo vm.swappiness = 0 >> /etc/sysctl.conf && sysctl -p
+
+htpasswd -b -c ~/temp/password nagiosadmin nagiosadmin
+
 chmod 666 /var/log/nagios/nagios.log
 
-##### RESTART NAGIOS #####
+sed -i '51 s/^#//' /etc/nagios/nagios.cfg
+
 systemctl restart nagios
 
-##### VERIFY NAGIOS CONFIG #####
-/usr/sbin/nagios -v /etc/nagios/nagios.cfg
-
-##### CHANGE DIRECTORY #####
-cd /etc/nagios/
-
-##### MAKE DIRECTORY #####
-mkdir servers
-
-#vim generate_config.sh
-#chmod +x generate_config.sh
-#./generate_config.sh host ip
-
-usermod -a -G nagios cchang30
-chmod 777 /etc/nagios/servers
-
-#uncomment line 51 cfg_dir=/etc/nagios/servers
-sed -i '51 s/^#//' nagios.cfg 
-
-######Need to put the NRPE changes into config file#####
 echo '########### NRPE CONFIG LINE #######################
-define command{
-command_name check_nrpe
-command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+        define command{
+        command_name check_nrpe
+        command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
 }' >> /etc/nagios/objects/commands.cfg
 
-#####RESTART NAGIOS#####
+touch /var/www/html/index.html
+
+chmod 755 /var/www/html/index.html
+
 systemctl restart nagios
+
+mkdir /etc/nagios/servers
+
+sed '51i\ cfg_dir=/etc/nagios/servers'
+
+usermod -a -G nagios mnicho18
+
+chmod 777 /etc/nagios/servers

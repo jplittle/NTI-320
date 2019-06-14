@@ -2,7 +2,7 @@
 
 bash generate_config.sh $1 $2
 
-gcloud compute scp --zone us-east4-c $1.cfg jamesplittle25@nagios-a:/etc/nagios/servers
+gcloud compute scp --zone us-east4-c $1.cfg jamesplittle25@nagios-server-final:/etc/nagios/servers
 
 # Note: I had to add user nicolebade to group nagios using usermod -a -G nagios nicolebade
 

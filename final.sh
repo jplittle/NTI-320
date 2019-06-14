@@ -21,7 +21,7 @@ gcloud compute instances create rsyslog-server-final \
 --zone us-east4-c \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=nagios-a
+--metadata-from-file startup-script=nagios-a.sh
 ###########
 # Repo
 ###########

@@ -49,7 +49,7 @@ gcloud compute instances create rsyslog-server-final \
 #############
 # Postgres
 #############
-gcloud compute instances create postgres-final \
+gcloud compute instances create postgres-server-final \
 --private-network-ip=10.150.0.6 \
 --image-family centos-7 \
 --image-project centos-cloud \

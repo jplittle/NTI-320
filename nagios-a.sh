@@ -1,47 +1,68 @@
-!#/bin/bash
-# Centos 7 Machine
-# sudo su
+#!/bin/bash
+
+# configuration for nagios-a
+#####################
+#   On the server   #
+#####################
+
+##### INSTALL NAGIOS #####
 yum -y install nagios
 systemctl enable nagios
-setenforce 0
 systemctl start nagios
+
+##### TURN OFF SE LINUX #####
+setenforce 0
+
+##### INSTALL APACHE #####
 yum -y install httpd
 systemctl enable httpd
-systemctlstart httpd
+systemctl start httpd
+
+##### INSTALL NRPE #####
 yum -y install nrpe
 systemctl enable nrpe
 systemctl start nrpe
+
+##### INSTALL NAGIOS SERVER PLUGINS #####
 yum -y install nagios-plugins-all
+
+##### INSTALL NRPE SERVER PLUGINS #####
 yum -y install nagios-plugins-nrpe
+
+##### CREATE PASSWORD #####
 htpasswd -b -c /etc/nagios/passwd nagiosadmin nagiosadmin
-# password set to 12qwaszx+1
-dd if=/dev/zero of=/swap bs=1024 count=2097152
-mkswap /swap && chown root. /swap && chmod 0600 /swap && swapon /swap
-echo /swap swap swap defaults 0 0 >> /etc/fstab
-echo vm.swappiness = 0 >> /etc/sysctl.conf && sysctl -p
+
+##### ENABLE ACCESS FOR LOGS #####
 chmod 666 /var/log/nagios/nagios.log
-sed -i '51 s/^#//' /etc/nagios/nagios.cfg
+
+##### RESTART NAGIOS #####
 systemctl restart nagios
-echo 'define command{
-                                command_name check_nrpe
-                                command_line /usr/lib64/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
-                                }' >> /etc/nagios/objects/commands.cfg
-# verify ( prefly )
+
+##### VERIFY NAGIOS CONFIG #####
 /usr/sbin/nagios -v /etc/nagios/nagios.cfg
+
+##### CHANGE DIRECTORY #####
+cd /etc/nagios/
+
+##### MAKE DIRECTORY #####
+mkdir servers
+
+#vim generate_config.sh
+#chmod +x generate_config.sh
+#./generate_config.sh host ip
+
+usermod -a -G nagios cchang30
 chmod 777 /etc/nagios/servers
-systecmctl restart nagios
-touch /var/www/html/index.html
-chmod 755 /var/www/html/index.html
-#cd /etc/nagios
-#sed -i "s/#cfg_dir=/etc/nagios/servers/cfg_dir=/etc/nagios/servers" nagios.cfg
-#sudo mkdir servers
-#sudo chmod -R 755 servers
-#systecmctl restart nagios
 
-# Baby Web server - For Google cloud make sure it is in the same zone as the Nagios server
-# yum -y install httpd
-# systemctl enable httpd
-# systemctl start httpd
+#uncomment line 51 cfg_dir=/etc/nagios/servers
+sed -i '51 s/^#//' nagios.cfg 
 
+######Need to put the NRPE changes into config file#####
+echo '########### NRPE CONFIG LINE #######################
+define command{
+command_name check_nrpe
+command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+}' >> /etc/nagios/objects/commands.cfg
 
-
+#####RESTART NAGIOS#####
+systemctl restart nagios

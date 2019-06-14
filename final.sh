@@ -1,5 +1,3 @@
-
-
 #!/bin/bash
 ###Clients, NFS server, and rsyslog server does NOT need the https and https tags!!!!!!!
 # sudo su
@@ -22,6 +20,11 @@ gcloud compute instances create nagios-server-final \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=nagios-a.sh
+
+###########
+# Build Server
+###########
+
 ###########
 # Repo
 ###########

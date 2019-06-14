@@ -11,6 +11,10 @@ cp custom-nrpe-2019/nti-320-plugins-0.1.tar.gz .
 cp custom-nrpe-2019/plugins/check_ldaps_cert_expiry.sh .
 cp custom-nrpe-2019/nti-320-plugins.spec .
 mv nti-320-plugins.spec ../SPECS
+rpmbuild -v -bb --clean SPECS/nti-320-plugins.spec
+
+yum -y install RPMS/x86_64/nti-320-plugins-0.1-1.el7.centos.x86_64.rpm
+
 # cd ..
 # rpmbuild -v -bb --clean SPECS/hello.spec
 #ls -l RPMS/x86_64/helloworld-0.1-1.el7.x86_64.rpm

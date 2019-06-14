@@ -3,6 +3,7 @@ yum -y install rpm-build make gcc git
 mkdir -p /root/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS} 
 cd ~/
 echo '%_topdir %(echo $HOME)/rpmbuild' > ~/.rpmmacros
+cd ~/rpmbuld/SOURCES
 # cd ~/rpmbuild/SOURCES
 # git clone https://github.com/nic-instruction/NTI-320.git
 # cd NTI-320/

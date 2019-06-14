@@ -17,7 +17,7 @@ cp custom-nrpe-2019/plugins/check_ldaps_cert_expiry.sh .
 cp custom-nrpe-2019/nti-320-plugins.spec .
 cp nti-320-plugins.spec ../SPECS
 
-cd ..
+cd ..;
 
 rpmbuild -v -bb --clean SPECS/nti-320-plugins.spec
 

@@ -17,6 +17,7 @@ gcloud compute instances create nagios-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-east4-c \
+--tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=nagios-a.sh

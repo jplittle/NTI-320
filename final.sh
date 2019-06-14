@@ -26,7 +26,7 @@ gcloud compute instances create nagios-server-final \
 # Cacti
 ###########
 gcloud compute instances create cacti-server-final \
---private-network-ip=10.150.0.3 \
+--private-network-ip=10.150.0.31 \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-east4-c \

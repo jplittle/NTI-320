@@ -8,4 +8,4 @@ gcloud compute scp --zone us-east4-c $1.cfg jamesplittle25@nagios-a:/etc/nagios/
 
 # I also had to chmod 775 /etc/nagios/servers
 
-gcloud compute ssh --zone us-east4-c jamesplittle25@nagios-a --command='sudo /usr/sbin/nagios -v /etc/nagios/nagios.cfg'
+gcloud compute ssh --zone us-east4-c jamesplittle25@nagios-server-final --command='sudo /usr/sbin/nagios -v /etc/nagios/nagios.cfg'

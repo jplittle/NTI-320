@@ -2,7 +2,7 @@
 #!/bin/bash
 yum -y install nagios-nrpe-server nagios-plugins nrpe
 yum install -y nagios-nrpe-server nagios-plugins nrpe nagios-plugins-load nagios-plugins-ping nagios-plugins-disk nagios-plugins-http nagios-plugins-procs wget
-wget -O /usr/lib64/nagios/plugins/check_mem.sh https://raw.githubusercontent.com/nic-instruction/NTI-320/master/nagios/check_mem.sh
+wget -O /usr/lib64/nagios/plugins/check_mem.sh https://github.com/jplittle/NTI-320/blob/master/nagios_check_mem.sh
 chmod +x /usr/lib64/nagios/plugins/check_mem.sh
 systemctl enable nrpe
 systemctl start nrpe

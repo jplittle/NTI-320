@@ -25,6 +25,14 @@ gcloud compute instances create nagios-server-final \
 # Build Server
 ###########
 
+gcloud compute instances create rpm-build-server-final \
+--private-network-ip=10.150.0.3 \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-east4-c \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=rpm-build-server.sh
 ###########
 # Repo
 ###########

@@ -54,7 +54,7 @@ gcloud compute instances create rsyslog-server-final \
 --zone us-east4-c \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=rsyslog-server.sh
+--metadata-from-file startup-script=rsyslog-server-final.sh
 
 
 #############
